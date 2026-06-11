@@ -1,0 +1,6 @@
+# Runtime dependencies
+PyQt6>=6.6
+pypdf>=4.0
+
+# Packaging (build-time only)
+pyinstaller>=6.3
