@@ -98,7 +98,22 @@ pytest
 That single `PDFCombiner.exe` can be copied to any Windows PC and run with no
 Python installed there.
 
-To build manually instead:
+### Build in the cloud (no Windows machine needed)
+
+This repo includes a GitHub Actions workflow
+([.github/workflows/build-windows.yml](.github/workflows/build-windows.yml))
+that builds the exe on a Windows runner:
+
+1. Push this repo to GitHub.
+2. Open the **Actions** tab — a build starts automatically on every push (or
+   click **Run workflow**).
+3. When it finishes, open the run and download the **`PDFCombiner-exe`**
+   artifact. Inside is `PDFCombiner.exe`, ready for any Windows PC.
+
+Pushing a version tag (e.g. `git tag v1.0.0 && git push --tags`) additionally
+attaches the exe to a GitHub **Release** for a permanent download link.
+
+### Build manually instead
 
 ```bat
 pyinstaller --clean --noconfirm --distpath "%USERPROFILE%\Desktop" PDFCombiner.spec
