@@ -32,7 +32,9 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: pytest -q
+        # 'python -m pytest' (not bare 'pytest') puts the repo root on sys.path
+        # so 'import pdf_combiner' resolves during collection.
+        run: python -m pytest -q
 
       - name: Build standalone EXE
         run: pyinstaller --clean --noconfirm PDFCombiner.spec
